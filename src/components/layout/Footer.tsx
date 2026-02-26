@@ -86,7 +86,7 @@ export function Footer() {
                 <div className="border-t border-white/20 mt-12 pt-8 text-center text-gray-400 text-sm flex flex-col md:flex-row justify-between items-center">
                     <p>&copy; {new Date().getFullYear()} Eddy Charlot TP. Tous droits réservés.</p>
                     <div className="mt-4 md:mt-0 flex space-x-4">
-                        <Link href="/" className="hover:text-white transition-colors">Mentions légales</Link>
+                        <Link href="/mentions-legales" className="hover:text-white transition-colors">Mentions légales</Link>
                     </div>
                 </div>
             </div>
