@@ -1,5 +1,6 @@
 import { Facebook, Instagram, Phone, Mail, MapPin, Send } from 'lucide-react';
 import Link from 'next/link';
+import { siteConfig } from '@/config/site';
 
 export function Footer() {
     return (
@@ -15,12 +16,12 @@ export function Footer() {
                             Votre partenaire de confiance en Bretagne pour le terrassement, l'empierrement, l'assainissement et le broyage forestier.
                         </p>
                         <div className="flex space-x-4">
-                            <Link href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                            <Link href={siteConfig.socials.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                                 <div className="bg-white/10 p-3 rounded-full hover:bg-gold transition-colors hover:text-navy cursor-pointer">
                                     <Facebook className="h-5 w-5" />
                                 </div>
                             </Link>
-                            <Link href="https://www.instagram.com/eddycharlottp" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                            <Link href={siteConfig.socials.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                                 <div className="bg-white/10 p-3 rounded-full hover:bg-gold transition-colors hover:text-navy cursor-pointer">
                                     <Instagram className="h-5 w-5" />
                                 </div>
@@ -44,19 +45,17 @@ export function Footer() {
                         <ul className="space-y-4">
                             <li className="flex items-start">
                                 <MapPin className="h-6 w-6 min-w-6 text-gold mr-3 mt-1" />
-                                <span className="text-gray-300">
-                                    Brezehen<br />
-                                    29710 Plonéis<br />
-                                    France
+                                <span className="text-gray-300 whitespace-pre-line">
+                                    {siteConfig.contact.address.split(', ').join('\n')}
                                 </span>
                             </li>
                             <li className="flex items-center">
                                 <Phone className="h-5 w-5 min-w-5 text-gold mr-3" />
-                                <a href="tel:0699690655" className="text-gray-300 hover:text-white transition-colors">06 99 69 06 55</a>
+                                <a href={`tel:${siteConfig.contact.phoneLink}`} className="text-gray-300 hover:text-white transition-colors">{siteConfig.contact.phone}</a>
                             </li>
                             <li className="flex items-center">
                                 <Mail className="h-5 w-5 min-w-5 text-gold mr-3" />
-                                <a href="mailto:charlot.eddytp@gmail.com" className="text-gray-300 hover:text-white break-all transition-colors">charlot.eddytp@gmail.com</a>
+                                <a href={`mailto:${siteConfig.contact.email}`} className="text-gray-300 hover:text-white break-all transition-colors">{siteConfig.contact.email}</a>
                             </li>
                         </ul>
                     </div>
@@ -64,7 +63,7 @@ export function Footer() {
                     <div className="md:col-span-12 lg:col-span-4 bg-white/5 p-6 md:p-8 rounded-2xl border border-white/10 shadow-xl">
                         <h3 className="text-xl font-bold mb-2 text-white">Prêt à démarrer votre projet ?</h3>
                         <p className="text-gray-300 text-sm mb-6">Demandez un devis ou posez-moi vos questions, j'y répondrai rapidement.</p>
-                        <form className="space-y-4" action="mailto:charlot.eddytp@gmail.com?subject=Nouveau contact depuis le site internet" method="post" encType="text/plain">
+                        <form className="space-y-4" action={`mailto:${siteConfig.contact.email}?subject=Nouveau contact depuis le site internet`} method="post" encType="text/plain">
                             <div className="relative">
                                 <label htmlFor="name" className="sr-only">Nom</label>
                                 <input type="text" id="name" name="name" placeholder="Votre nom complet" className="w-full bg-navy/50 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent transition-all" required />

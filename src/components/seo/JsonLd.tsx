@@ -1,12 +1,14 @@
+import { siteConfig } from '@/config/site';
+
 export function JsonLd() {
     const schema = {
         "@context": "https://schema.org",
         "@type": "HomeAndConstructionBusiness",
-        "name": "Eddy Charlot TP",
-        "image": "https://www.eddycharlottp.fr/images/home/hero.jpg",
-        "telephone": "+33699690655",
-        "email": "charlot.eddytp@gmail.com",
-        "url": "https://www.eddycharlottp.fr/",
+        "name": siteConfig.name,
+        "image": `${siteConfig.domain}/images/home/hero.jpg`,
+        "telephone": siteConfig.contact.phoneLink,
+        "email": siteConfig.contact.email,
+        "url": siteConfig.domain,
         "priceRange": "€€",
         "address": {
             "@type": "PostalAddress",
@@ -38,10 +40,10 @@ export function JsonLd() {
                 "closes": "18:00"
             }
         ],
-        "description": "Entreprise de travaux publics spécialisée en terrassement, assainissement (Charte ANC), empierrement, enrochement, dessouchage et broyage forestier dans le Finistère, Bretagne.",
+        "description": siteConfig.description,
         "sameAs": [
-            "https://www.facebook.com/people/Eddy-charlot-TP/100086716912365/",
-            "https://www.instagram.com/eddycharlottp/"
+            siteConfig.socials.facebook,
+            siteConfig.socials.instagram
         ]
     };
 

@@ -1,10 +1,11 @@
 import { MetadataRoute } from 'next';
 import { getActivities } from '@/lib/markdown';
+import { siteConfig } from '@/config/site';
 
 export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const baseUrl = 'https://www.eddycharlottp.fr';
+    const baseUrl = siteConfig.domain;
     const activities = getActivities();
 
     // Map all dynamic activity pages
