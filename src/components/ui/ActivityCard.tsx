@@ -4,6 +4,7 @@ import { ActivityData } from '@/lib/markdown';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import { getImagePath } from '@/lib/utils';
 
 export function ActivityCard({ activity }: { activity: ActivityData }) {
     return (
@@ -16,7 +17,7 @@ export function ActivityCard({ activity }: { activity: ActivityData }) {
                     <div className="absolute inset-0 bg-navy/5 flex items-center justify-center">
                         {activity.image ? (
                             // eslint-disable-next-line @next/next/no-img-element
-                            <img src={activity.image} alt={activity.title} className="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-700 ease-out" />
+                            <img src={getImagePath(activity.image)} alt={activity.title} className="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-700 ease-out" />
                         ) : null}
                     </div>
                     {activity.highlight && (

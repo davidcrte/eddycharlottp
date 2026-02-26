@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Menu, X } from 'lucide-react';
+import { getImagePath } from '@/lib/utils';
 import { useState } from 'react';
 
 export function Header() {
@@ -15,7 +16,7 @@ export function Header() {
                     <div className="flex-shrink-0 flex items-center">
                         <Link href="/" className="flex flex-col items-center group">
                             <Image
-                                src="/logo.png"
+                                src={getImagePath("/logo.png")}
                                 alt="Eddy Charlot TP Logo"
                                 width={120}
                                 height={90}

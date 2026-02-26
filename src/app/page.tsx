@@ -5,6 +5,7 @@ import { getActivities, getPressArticles } from '@/lib/markdown';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowDown, CheckCircle2, Newspaper } from 'lucide-react';
+import { getImagePath } from '@/lib/utils';
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
@@ -27,7 +28,7 @@ export default function Home() {
                         <div className="absolute inset-0 bg-navy/70 z-10 mix-blend-multiply" />
                         <div className="absolute inset-0 bg-gradient-to-b from-navy/50 via-transparent to-navy/90 z-10" />
                         <Image
-                            src="/images/home/hero.jpg"
+                            src={getImagePath("/images/home/hero.jpg")}
                             alt="Eddy Charlot TP en action"
                             fill
                             priority

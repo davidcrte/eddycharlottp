@@ -6,6 +6,7 @@ import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { MDXRemote } from 'next-mdx-remote/rsc';
+import { getImagePath } from '@/lib/utils';
 
 export async function generateStaticParams() {
     const activities = getActivities();
@@ -34,7 +35,7 @@ export default async function ActivityPage({ params }: { params: Promise<{ slug:
                     <article className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
                         <div className="aspect-[21/9] w-full relative bg-navy flex items-center justify-center overflow-hidden">
                             {activity.image && (
-                                <Image src={activity.image} alt={activity.title} fill priority className="object-cover opacity-90" />
+                                <Image src={getImagePath(activity.image)} alt={activity.title} fill priority className="object-cover opacity-90" />
                             )}
                             <div className="absolute inset-0 bg-gradient-to-t from-navy/80 to-transparent" />
                             <h1 className="absolute bottom-8 left-8 right-8 text-3xl md:text-5xl font-black text-white drop-shadow-md">
@@ -54,7 +55,7 @@ export default async function ActivityPage({ params }: { params: Promise<{ slug:
                                         <div key={index} className="aspect-square relative rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
                                             {/* eslint-disable-next-line @next/next/no-img-element */}
                                             <img
-                                                src={imgSrc}
+                                                src={getImagePath(imgSrc)}
                                                 alt={`${activity.title} - Image ${index + 1}`}
                                                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                                             />
