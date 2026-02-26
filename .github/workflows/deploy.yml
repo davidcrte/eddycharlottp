@@ -41,6 +41,8 @@ jobs:
       - name: Build with Next.js
         run: npx next build
         env:
+          # ATTENTION : Si vous achetez un nom de domaine (ex: eddycharlottp.fr), 
+          # SUPPRIMEZ les deux lignes ci-dessous (env: et NEXT_PUBLIC_BASE_PATH:)
           NEXT_PUBLIC_BASE_PATH: /${{ github.event.repository.name }}
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

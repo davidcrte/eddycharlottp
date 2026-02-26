@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 
+// === LORS DU PASSAGE A UN VRAI NOM DE DOMAINE (ex: eddycharlottp.fr) ===
+// 1. Supprimez tout ce bloc "isGithubActions"
+// 2. Dans le "nextConfig" en dessous, supprimez les lignes "basePath" et "assetPrefix"
 const isGithubActions = process.env.GITHUB_ACTIONS || false;
 let basePath = '';
 
